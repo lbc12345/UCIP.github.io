@@ -89,9 +89,9 @@
           <h1 class="title is-1 publication-title">UCIP: A Universal Framework for Compressed Image Super-Resolution using Dynamic Prompt</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=sbiY97gAAAAJ&hl=en">Xin Li*</a><sup>1</sup>,</span>
+              <a href="https://scholar.google.com/citations?user=sbiY97gAAAAJ&hl=en">Xin Li</a><sup>*1</sup>,</span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=qHeWjNwAAAAJ&hl=en&authuser=1">Bingchen Li*</a><sup>1</sup>,</span>
+              <a href="https://scholar.google.com/citations?user=qHeWjNwAAAAJ&hl=en&authuser=1">Bingchen Li</a><sup>*1</sup>,</span>
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=Z8PYhA4AAAAJ&hl=en">Yeying Jin</a><sup>2</sup>,
             </span>
@@ -140,7 +140,7 @@
               <!-- Video Link. -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/renyulin-f/MoE-DiffIR"
+                <a href="https://github.com/lbc12345/UCIP"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -150,7 +150,7 @@
               </span>
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="https://drive.google.com/file/d/15RNhqaOVUYWA6xy_sIw6fC8jDX1hLbL8/view?usp=sharing"
+                <a href="https://drive.google.com/file/d/1LwZiTOofyhJTZb3yILSC9mCX1gsxTdrA/view?usp=sharing"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
@@ -175,7 +175,7 @@
                  alt="Interpolate start reference image."/>
       </img>
       <h2 class="subtitle has-text-centered">
-        CIR Dataset
+        UCSR Dataset
       </h2>
     </div>
   </div>
@@ -187,34 +187,41 @@
     <!-- Competition. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">CIR Dataset Information</h2>
+        <h2 class="title is-3">UCSR Dataset Information</h2>
         <div class="content has-text-justified">
           <p>
-            We propose a comprehensive benchmark dataset for universal compressed image restoration (CIR), covering 21 types of degradations
-            from 7 popular traditional and learned codecs. Traditional codecs includes JPEG</sup><a href="https://dl.acm.org/doi/abs/10.1145/103085.103089">[1]</a></sup>, VVC</sup><a href="https://ieeexplore.ieee.org/abstract/document/9503377">[2]</a></sup>, HEVC</sup><a href="https://link.springer.com/content/pdf/10.1007/978-3-319-06895-4.pdf">[3]</a></sup>, WEBP</sup><a href="https://developers.google.com/speed/webp/docs/compression?hl=zh-cn">[4]</a></sup>. Learned codecs includes HIFIC</sup><a href="https://arxiv.org/abs/2006.09965">[5]</a></sup>, \( C_{\text{SSIM}} \)</sup><a href="https://arxiv.org/abs/2001.01568">[6]</a></sup>, \( C_{\text{PSNR}} \)</sup><a href="https://arxiv.org/abs/2001.01568">[6]</a></sup>. Within each codec, we 
-            apply three levels distortions:
+            We build an all-in-one benchmark dataset for the compressed image super-resolution (CSR) task by collecting the datasets with the popular 6 
+            diverse traditional and learning-based codecs, including traditional codecs: 
+            JPEG</sup><a href="https://dl.acm.org/doi/abs/10.1145/103085.103089">[1]</a></sup>, 
+            HM</sup><a href="https://link.springer.com/content/pdf/10.1007/978-3-319-06895-4.pdf">[2]</a></sup>, 
+            VTM</sup><a href="https://ieeexplore.ieee.org/abstract/document/9503377">[3]</a></sup>;
+            and learning-based codecs:
+            \( C_{\text{PSNR}} \)</sup><a href="https://arxiv.org/abs/2001.01568">[4]</a></sup>,
+            \( C_{\text{SSIM}} \)</sup><a href="https://arxiv.org/abs/2001.01568">[4]</a></sup>,
+            HIFIC</sup><a href="https://arxiv.org/abs/2006.09965">[5]</a></sup>, resulting in 23 common degradations.
+            We list the detailed quality factor (QF), quantization parameter (QP) and compression mode (Mode) in the following (From left to right: poorer quality -> better quality):
             <ul>
-                <li>JPEG: QF=10,15,20</li>
-                <li>VVC: QP=37,42,47</li>
-                <li>HEVC: QP=37,42,47</li>
-                <li>WEBP: QF=1,5,10</li>
+                <li>JPEG: QF=10,20,30,40</li>
+                <li>HM: QP=47,42,37,32</li>
+                <li>VTM: QP=47,42,37,32</li>
+                <li>\( C_{\text{PSNR}} \): Mode=1,2,3,4</li>
+                <li>\( C_{\text{SSIM}} \): Mode=1,2,3,4</li>
                 <li>HIFIC: Mode='low', 'med', 'high'</li>
-                <li>\( C_{\text{SSIM}} \): Mode=1,2,3</li>
-                <li>\( C_{\text{PSNR}} \): Mode=1,3,3</li>
             </ul>
-            Our CIR dataset is based on DF2K</sup><a href="https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/html/Agustsson_NTIRE_2017_Challenge_CVPR_2017_paper.html">[7]</a></sup>, with the original DF2K images considered as the ground truth. All compression codecs are applied to these images. Here we release the <a href="https://drive.google.com/file/d/15RNhqaOVUYWA6xy_sIw6fC8jDX1hLbL8/view?usp=sharing">datalink</a> of CIR dataset including training datasets and tests datasets.
-            The branch of this dataset is shown in following figure. The dataset comprises training and testing sets. In the training set, "DF2K_HR" contains the ground truth (GT) images, while the other folders correspond to 21 types of low-quality (LQ) images resulting from various compression distortions. The five testing sets also include folders corresponding to the 21 types of compressed LQ images, as well as folders for the high-resolution (HR) images.
+            We establish our UCSR dataset based on popular high-quality dataset DF2K</sup><a href="https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/html/Agustsson_NTIRE_2017_Challenge_CVPR_2017_paper.html">[6]</a></sup>. 
+            Considering the original image as the ground-truth, we generate the compressed low-resolution image with x4 bicubic downsampling and different compression codecs.
+            For evaluation, we follow the image super-resolution (ISR) problems and adopt five common benchmarks: 
+            Set5</sup><a href="http://eprints.imtlucca.it/2412/1/Bevilacqua_2012.pdf">[7]</a></sup>, 
+            Set14</sup><a href="https://www.researchgate.net/profile/Michael-Elad/publication/220942248_On_Single_Image_Scale-Up_Using_Sparse-Representations/links/5a64b36aaca272a1581f160c/On-Single-Image-Scale-Up-Using-Sparse-Representations.pdf">[8]</a></sup>, 
+            BSD100</sup><a href="https://digitalassets.lib.berkeley.edu/techreports/ucb/text/CSD-01-1133.pdf">[9]</a></sup>, 
+            Urban100</sup><a href="https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Huang_Single_Image_Super-Resolution_2015_CVPR_paper.pdf">[10]</a></sup> and 
+            Manga109</sup><a href="https://link.springer.com/content/pdf/10.1007/s11042-016-4020-z.pdf">[11]</a></sup>. We compress these images with various codecs based on their x4 downsampled version.
+            Our full dataset, including training and testing images, can be downloaded via this <a href="https://drive.google.com/file/d/1LwZiTOofyhJTZb3yILSC9mCX1gsxTdrA/view?usp=sharing">link</a>.
+            Notice that, for the ground-truth of DF2K, please download them via <a href="http://data.vision.ee.ethz.ch/cvl/DIV2K/DIV2K_train_HR.zip">DIV2K</a> (800 images) and <a href="https://cv.snu.ac.kr/research/EDSR/Flickr2K.tar">Flickr2K</a> (2650 images). 
           </p>
-            <img src="./imgs/Data_branch.png"
+            <img src="./imgs/dataset.png"
                  class="interpolation-image"
-                 alt="competition."/>
-          <p>
-            We also release unseen tasks testsets apart from CIR dataset. It consists of "Cross Degrees" and "Cross Types". We choose JPEG code from QF value [5,25]
-            and select AVC(H.264) codec from vaules [47,42,37]. The branch is shown in following figure.         
-          </p>
-          <img src="./imgs/Data_branch2.png"
-                 class="interpolation-image"
-                 alt="competition."/>
+                 alt="data"/>
           </div>
         </div>
       </div>
@@ -231,8 +238,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present MoE-DiffIR, an innovative universal compressed image restoration (CIR) method with task-customized diffusion priors. This intends to handle two pivotal challenges in the existing CIR methods: (i) lacking adaptability and universality for different image codecs, e.g., JPEG and WebP; (ii) poor texture generation capability, particularly at low bitrates. Specifically, our MoE-DiffIR develops the powerful mixture-of-experts (MoE) prompt module, where some basic prompts cooperate to excavate the task-customized diffusion priors from Stable Diffusion (SD) for each compression task. Moreover, the degradation-aware routing mechanism is proposed to enable the flexible assignment of basic prompts. To activate and reuse the cross-modality generation prior of SD, we design the visual-to-text adapter for MoE-DiffIR, which aims to
-            adapt the embedding of low-quality images from the visual domain to the textual domain as the textual guidance for SD, enabling more consistent and reasonable texture generation. We also construct one comprehensive benchmark dataset for universal CIR, covering 21 types of degradations from 7 popular traditional and learned codecs. Extensive experiments on universal CIR have demonstrated the excellent robustness and texture restoration capability of our proposed MoE-DiffIR.
+            Compressed Image Super-resolution (CSR) aims to simultaneously super-resolve the compressed images and tackle the challenging hybrid distortions caused by compression. However, existing works on CSR usually focus on single compression codec, \ie, JPEG, ignoring the diverse traditional or learning-based codecs in the practical application, \eg, HEVC, VVC, HIFIC, \emph{etc}. In this work, we propose the first universal CSR framework, dubbed UCIP, with dynamic prompt learning, intending to jointly support the CSR distortions of any compression codecs/modes. Particularly, an efficient dynamic prompt strategy is proposed to mine the content/spatial-aware task-adaptive contextual information for the universal CSR task, using only a small amount of prompts with spatial size $1\times1$. To simplify contextual information mining, we introduce the novel MLP-like framework backbone for our UCIP by adapting the Active Token Mixer (ATM) to CSR tasks for the first time, where the global information modeling is only taken in horizontal and vertical directions with offset prediction. We also build an all-in-one benchmark dataset for the CSR task by collecting the datasets with the popular 6 diverse traditional and learning-based codecs, including JPEG, HEVC, VVC, HIFIC, etc., resulting in 23 common degradations. Extensive experiments have shown the consistent and excellent performance of our UCIP on universal CSR tasks.
           </p>
         </div>
       </div>
@@ -256,23 +262,35 @@
         [1] Wallace, G.K.: The jpeg still picture compression standard. Communications of the ACM 34(4), 30–44 (1991)
       </p>
       <p>
-        [2] Bross, B., Wang, Y.K., Ye, Y., Liu, S., Chen, J., Sullivan, G.J., Ohm, J.R.: Overview of the versatile video coding (vvc) standard and its applications. IEEE Transactions on Circuits and Systems for Video Technology 31(10), 3736–3764 (2021)
+        [2] Sze, V., Budagavi, M. and Sullivan, G.J., 2014. High efficiency video coding (HEVC). In Integrated circuit and systems, algorithms and architectures (Vol. 39, p. 40). Berlin, Germany: Springer.
       </p>
       <p>
-        [3] Sze, V., Budagavi, M. and Sullivan, G.J., 2014. High efficiency video coding (HEVC). In Integrated circuit and systems, algorithms and architectures (Vol. 39, p. 40). Berlin, Germany: Springer.
+        [3] Bross, B., Wang, Y.K., Ye, Y., Liu, S., Chen, J., Sullivan, G.J., Ohm, J.R.: Overview of the versatile video coding (vvc) standard and its applications. IEEE Transactions on Circuits and Systems for Video Technology 31(10), 3736–3764 (2021)
       </p>
       <p>
-        [4] Ginesu, G., Pintus, M., Giusto, D.D.: Objective assessment of the webp image coding algorithm. Signal processing: image communication 27(8), 867–874 (2012)
-      </p>
+        [4] Cheng, Z., Sun, H., Takeuchi, M. and Katto, J., 2020. Learned image compression with discretized gaussian mixture likelihoods and attention modules. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (pp. 7939-7948).
+      <p>
       <p>
         [5] Mentzer, F., Toderici, G.D., Tschannen, M. and Agustsson, E., 2020. High-fidelity generative image compression. Advances in Neural Information Processing Systems, 33, pp.11913-11924.
       </p>
-      <p>
-        [6] Cheng, Z., Sun, H., Takeuchi, M. and Katto, J., 2020. Learned image compression with discretized gaussian mixture likelihoods and attention modules. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (pp. 7939-7948).
-      <p>
-        [7] Agustsson, E., Timofte, R.: Ntire 2017 challenge on single image super-resolution: Dataset and study. In: Proceedings of the IEEE conference on computer vision and pattern recognition workshops. pp. 126–135 (2017)
+        [6] Agustsson, E., Timofte, R.: Ntire 2017 challenge on single image super-resolution: Dataset and study. In: Proceedings of the IEEE conference on computer vision and pattern recognition workshops. pp. 126–135 (2017)
       </p>
-    </div>
+      <p>
+        [7] Low-complexity single-image super-resolution based on nonnegative neighbor embedding.
+      </p>
+      <p>
+        [8] Zeyde R, Elad M, Protter M. On single image scale-up using sparse-representations[C]//Curves and Surfaces: 7th International Conference, Avignon, France, June 24-30, 2010, Revised Selected Papers 7. Springer Berlin Heidelberg, 2012: 711-730.
+      </p>
+      <p>
+        [9] Martin D, Fowlkes C, Tal D, et al. A database of human segmented natural images and its application to evaluating segmentation algorithms and measuring ecological statistics[C]//Proceedings eighth IEEE international conference on computer vision. ICCV 2001. IEEE, 2001, 2: 416-423.
+      </p>
+      <p>
+        [10] Huang J B, Singh A, Ahuja N. Single image super-resolution from transformed self-exemplars[C]//Proceedings of the IEEE conference on computer vision and pattern recognition. 2015: 5197-5206.
+      </p>
+      <p>
+        [11] Matsui Y, Ito K, Aramaki Y, et al. Sketch-based manga retrieval using manga109 dataset[J]. Multimedia tools and applications, 2017, 76: 21811-21838.
+      </p>
+      </div>
   </div>
 </div>
 <!--/ Concurrent Work. -->
@@ -289,9 +307,9 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-      @inproceedings{ren2024MoE-DiffIR,
-        title={MoE-DiffIR: Task-customized Diffusion Priors for Universal Compressed Image Restoration},
-        author={Ren, Yulin and Li, Xin and Li, Bingchen and Wang, Xingrui and Guo, Mengxi and Zhao, Shijie and Zhang, Li and Chen, Zhibo},
+      @inproceedings{li2024ucip,
+        title={UCIP: A Universal Framework for Compressed Image Super-Resolution using Dynamic Prompt},
+        author={Li, Xin and Li, Bingchen and Jin, Yeying and Lan, Cuiling and Zhu, Hanxin and Ren, Yulin and Chen, Zhibo},
         booktitle={European Conference on Computer Vision},
         year={2024},
         organization={Springer}
