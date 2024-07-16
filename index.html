@@ -166,7 +166,7 @@
   </div>
 </section>
 
-  <section class="hero teaser">
+<section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <img id="teaser" autoplay muted loop playsinline height="100%">
@@ -178,56 +178,6 @@
         UCSR Dataset
       </h2>
     </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Competition. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">UCSR Dataset Information</h2>
-        <div class="content has-text-justified">
-          <p>
-            We build an all-in-one benchmark dataset for the compressed image super-resolution (CSR) task by collecting the datasets with the popular 6 
-            diverse traditional and learning-based codecs, including traditional codecs: 
-            JPEG</sup><a href="https://dl.acm.org/doi/abs/10.1145/103085.103089">[1]</a></sup>, 
-            HM</sup><a href="https://link.springer.com/content/pdf/10.1007/978-3-319-06895-4.pdf">[2]</a></sup>, 
-            VTM</sup><a href="https://ieeexplore.ieee.org/abstract/document/9503377">[3]</a></sup>;
-            and learning-based codecs:
-            \( C_{\text{PSNR}} \)</sup><a href="https://arxiv.org/abs/2001.01568">[4]</a></sup>,
-            \( C_{\text{SSIM}} \)</sup><a href="https://arxiv.org/abs/2001.01568">[4]</a></sup>,
-            HIFIC</sup><a href="https://arxiv.org/abs/2006.09965">[5]</a></sup>, resulting in 23 common degradations.
-            We list the detailed quality factor (QF), quantization parameter (QP) and compression mode (Mode) in the following (From left to right: poorer quality -> better quality):
-            <ul>
-                <li>JPEG: QF=10,20,30,40</li>
-                <li>HM: QP=47,42,37,32</li>
-                <li>VTM: QP=47,42,37,32</li>
-                <li>\( C_{\text{PSNR}} \): Mode=1,2,3,4</li>
-                <li>\( C_{\text{SSIM}} \): Mode=1,2,3,4</li>
-                <li>HIFIC: Mode='low', 'med', 'high'</li>
-            </ul>
-            We establish our UCSR dataset based on popular high-quality dataset DF2K</sup><a href="https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/html/Agustsson_NTIRE_2017_Challenge_CVPR_2017_paper.html">[6]</a></sup>. 
-            Considering the original image as the ground-truth, we generate the compressed low-resolution image with x4 bicubic downsampling and different compression codecs.
-            For evaluation, we follow the image super-resolution (ISR) problems and adopt five common benchmarks: 
-            Set5</sup><a href="http://eprints.imtlucca.it/2412/1/Bevilacqua_2012.pdf">[7]</a></sup>, 
-            Set14</sup><a href="https://www.researchgate.net/profile/Michael-Elad/publication/220942248_On_Single_Image_Scale-Up_Using_Sparse-Representations/links/5a64b36aaca272a1581f160c/On-Single-Image-Scale-Up-Using-Sparse-Representations.pdf">[8]</a></sup>, 
-            BSD100</sup><a href="https://digitalassets.lib.berkeley.edu/techreports/ucb/text/CSD-01-1133.pdf">[9]</a></sup>, 
-            Urban100</sup><a href="https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Huang_Single_Image_Super-Resolution_2015_CVPR_paper.pdf">[10]</a></sup> and 
-            Manga109</sup><a href="https://link.springer.com/content/pdf/10.1007/s11042-016-4020-z.pdf">[11]</a></sup>. We compress these images with various codecs based on their x4 downsampled version.
-            Our full dataset, including training and testing images, can be downloaded via this <a href="https://drive.google.com/file/d/1LwZiTOofyhJTZb3yILSC9mCX1gsxTdrA/view?usp=sharing">link</a>.
-            Notice that, for the ground-truth of DF2K, please download them via <a href="http://data.vision.ee.ethz.ch/cvl/DIV2K/DIV2K_train_HR.zip">DIV2K</a> (800 images) and <a href="https://cv.snu.ac.kr/research/EDSR/Flickr2K.tar">Flickr2K</a> (2650 images). 
-          </p>
-        </div>
-        <div align="center">
-            <img src="./imgs/dataset.png"
-                 class="interpolation-image"
-                 alt="data"/>
-        </div>
-      </div>
-    </div>
-    <!--/ Competition. -->
   </div>
 </section>
 
@@ -248,53 +198,85 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this work, we propose the first universal framework with dynamic prompt strategy and MLP-like module to tackle the challenge CSR tasks. 
+            Benifitting from our dynamic prompt-based offset learning, our UCIP is capable of encoding optimal content-aware contextual information, while 
+            maintaining the task-aware adaptability via prompt components. For more information, please refer to our paper.
+          </p>
+        </div>
+        <div align="center">
+          <img src="./imgs/UCIP.png"
+          class="interpolation-image"
+          alt="data"/>
+          <h2 class="subtitle has-text-centered">
+            Illustration of the framework of the proposed UCIP.
+          </h2>
+        </div>
+      </div>
+    </div>
+    <!--/ Method. -->
+  </div>
+</section>
 
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Competition. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">UCSR Dataset Information</h2>
+        <div class="content has-text-justified">
+          <p>
+            We build an all-in-one benchmark dataset for the compressed image super-resolution (CSR) task by collecting the datasets with the popular 6 
+            diverse traditional and learning-based codecs, including traditional codecs: 
+            JPEG, 
+            HM, 
+            VTM; 
+            and learning-based codecs:
+            \( C_{\text{PSNR}} \),
+            \( C_{\text{SSIM}} \),
+            HIFIC, resulting in 23 common degradations.
+            We list the detailed quality factor (QF), quantization parameter (QP) and compression mode (Mode) in the following (From left to right: poorer quality -> better quality):
+            <ul>
+                <li>JPEG: QF=10,20,30,40</li>
+                <li>HM: QP=47,42,37,32</li>
+                <li>VTM: QP=47,42,37,32</li>
+                <li>\( C_{\text{PSNR}} \): Mode=1,2,3,4</li>
+                <li>\( C_{\text{SSIM}} \): Mode=1,2,3,4</li>
+                <li>HIFIC: Mode='low', 'med', 'high'</li>
+            </ul>
+            We establish our UCSR dataset based on popular high-quality dataset DF2K. 
+            Considering the original image as the ground-truth, we generate the compressed low-resolution image with x4 bicubic downsampling and different compression codecs.
+            For evaluation, we follow the image super-resolution (ISR) problems and adopt five common benchmarks: 
+            Set5, 
+            Set14, 
+            BSD100, 
+            Urban100 and 
+            Manga109. We compress these images with various codecs based on their x4 downsampled version.
+            Our full dataset, including training and testing images, can be downloaded via this <a href="https://drive.google.com/file/d/1LwZiTOofyhJTZb3yILSC9mCX1gsxTdrA/view?usp=sharing">link</a>.
+            Notice that, for the ground-truth of DF2K, please download them via <a href="http://data.vision.ee.ethz.ch/cvl/DIV2K/DIV2K_train_HR.zip">DIV2K</a> (800 images) and <a href="https://cv.snu.ac.kr/research/EDSR/Flickr2K.tar">Flickr2K</a> (2650 images). 
+          </p>
+        </div>
+        <!-- <div align="center">
+            <img src="./imgs/dataset.png"
+                 class="interpolation-image"
+                 alt="data"/>
+        </div> -->
+      </div>
+    </div>
+    <!--/ Competition. -->
+  </div>
+</section>
 
 </section>
 
-<!-- Concurrent Work. -->
-<div class="section">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Reference</h2>
-
-    <div class="content has-text-justified">
-      <p>
-        [1] Wallace, G.K.: The jpeg still picture compression standard. Communications of the ACM 34(4), 30–44 (1991)
-      </p>
-      <p>
-        [2] Sze, V., Budagavi, M. and Sullivan, G.J., 2014. High efficiency video coding (HEVC). In Integrated circuit and systems, algorithms and architectures (Vol. 39, p. 40). Berlin, Germany: Springer.
-      </p>
-      <p>
-        [3] Bross, B., Wang, Y.K., Ye, Y., Liu, S., Chen, J., Sullivan, G.J., Ohm, J.R.: Overview of the versatile video coding (vvc) standard and its applications. IEEE Transactions on Circuits and Systems for Video Technology 31(10), 3736–3764 (2021)
-      </p>
-      <p>
-        [4] Cheng, Z., Sun, H., Takeuchi, M. and Katto, J., 2020. Learned image compression with discretized gaussian mixture likelihoods and attention modules. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (pp. 7939-7948).
-      <p>
-      <p>
-        [5] Mentzer, F., Toderici, G.D., Tschannen, M. and Agustsson, E., 2020. High-fidelity generative image compression. Advances in Neural Information Processing Systems, 33, pp.11913-11924.
-      </p>
-        [6] Agustsson, E., Timofte, R.: Ntire 2017 challenge on single image super-resolution: Dataset and study. In: Proceedings of the IEEE conference on computer vision and pattern recognition workshops. pp. 126–135 (2017)
-      </p>
-      <p>
-        [7] Low-complexity single-image super-resolution based on nonnegative neighbor embedding.
-      </p>
-      <p>
-        [8] Zeyde R, Elad M, Protter M. On single image scale-up using sparse-representations[C]//Curves and Surfaces: 7th International Conference, Avignon, France, June 24-30, 2010, Revised Selected Papers 7. Springer Berlin Heidelberg, 2012: 711-730.
-      </p>
-      <p>
-        [9] Martin D, Fowlkes C, Tal D, et al. A database of human segmented natural images and its application to evaluating segmentation algorithms and measuring ecological statistics[C]//Proceedings eighth IEEE international conference on computer vision. ICCV 2001. IEEE, 2001, 2: 416-423.
-      </p>
-      <p>
-        [10] Huang J B, Singh A, Ahuja N. Single image super-resolution from transformed self-exemplars[C]//Proceedings of the IEEE conference on computer vision and pattern recognition. 2015: 5197-5206.
-      </p>
-      <p>
-        [11] Matsui Y, Ito K, Aramaki Y, et al. Sketch-based manga retrieval using manga109 dataset[J]. Multimedia tools and applications, 2017, 76: 21811-21838.
-      </p>
-      </div>
-  </div>
-</div>
-<!--/ Concurrent Work. -->
 
 </div>
 </section>
